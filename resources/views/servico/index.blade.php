@@ -1,17 +1,17 @@
 @extends('layouts.app')
  
-@section('title', 'Clientes')
+@section('title', 'Serviços')
  
 @section('content')
  
 <div class="page-header">
-    <h1 class="h3 mb-0"><i class="bi bi-people-fill text-primary"></i> Clientes</h1>
+    <h1 class="h3 mb-0"><i class="bi bi-tools text-warning"></i> Serviços</h1>
     <div class="d-flex gap-2">
         <a href="{{ route('home') }}" class="btn btn-outline-secondary">
             <i class="bi bi-arrow-left"></i> Voltar
         </a>
-        <a href="{{ route('cliente.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-circle"></i> Novo Cliente
+        <a href="{{ route('servico.create') }}" class="btn btn-warning text-white">
+            <i class="bi bi-plus-circle"></i> Novo Serviço
         </a>
     </div>
 </div>
@@ -25,27 +25,27 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>Telefone</th>
+                    <th>Preço</th>
                     <th>Ações</th>
                 </tr>
             </thead>
 
             <tbody>
-                @foreach($clientes as $c)
+                @foreach($servicos as $s)
                     <tr>
-                        <td>{{ $c->id }}</td>
-                        <td>{{ $c->nome }}</td>
-                        <td>{{ $c->telefone }}</td>
+                        <td>{{ $s->id }}</td>
+                        <td>{{ $s->nome }}</td>
+                        <td>R$ {{ $s->preco }}</td>
                         <td class="d-flex gap-2">
-                            <a href="/cliente/{{ $c->id }}/edit" class="btn btn-sm btn-warning">Editar</a>
-                            <a href="/cliente/{{ $c->id }}" class="btn btn-sm btn-info">Consultar</a>
+                            <a href="/servico/{{ $s->id }}/edit" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="/servico/{{ $s->id }}" class="btn btn-sm btn-info">Consultar</a>
 
-                            <form action="/cliente/{{ $c->id }}" method="post">
+                            <form action="/servico/{{ $s->id }}" method="post">
                                 @csrf
                                 @method('DELETE')
 
                                 <button type="submit" class="btn btn-sm btn-danger"
-                                    onclick="return confirm('Tem certeza que deseja excluir este cliente?')">
+                                    onclick="return confirm('Tem certeza que deseja excluir este serviço?')">
                                     Excluir
                                 </button>
                             </form>

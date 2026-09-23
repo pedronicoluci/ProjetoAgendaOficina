@@ -10,10 +10,16 @@ class Moto extends Model
 
     public $incrementing = true;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'cliente_id',
         'marca',
         'modelo',
         'placa'
     ];
+
+    public function cliente(){
+        return $this->belongsTo(Cliente::class, 'cliente_id');
+    }
 }

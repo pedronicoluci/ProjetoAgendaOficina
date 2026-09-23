@@ -1,12 +1,12 @@
 @extends('layouts.app')
  
-@section('title', 'Novo Cliente')
+@section('title', 'Novo Serviço')
  
 @section('content')
  
 <div class="page-header">
-    <h1 class="h3 mb-0"><i class="bi bi-people-fill text-primary"></i> Novo Cliente</h1>
-    <a href="{{ route('cliente.index') }}" class="btn btn-outline-secondary">
+    <h1 class="h3 mb-0"><i class="bi bi-tools text-warning"></i> Novo Serviço</h1>
+    <a href="{{ route('servico.index') }}" class="btn btn-outline-secondary">
         <i class="bi bi-arrow-left"></i> Voltar
     </a>
 </div>
@@ -15,7 +15,7 @@
     <div class="card-body">
 
 
-        <form action="/cliente" method="post">
+        <form action="/servico" method="post">
             @csrf
 
             <div class="mb-3">
@@ -24,12 +24,15 @@
             </div>
 
             <div class="mb-3">
-                <label for="telefone" class="form-label">Telefone</label>
-                <input type="text" id="telefone" name="telefone" class="form-control" required="">
+                <label for="preco" class="form-label">Preço</label>
+                <input type="number" id="preco" name="preco" class="form-control" required="">
             </div>
 
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
     </div>
 </div>
  

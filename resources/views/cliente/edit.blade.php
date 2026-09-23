@@ -1,17 +1,18 @@
-<!doctype html>
-<html lang="pt-BR">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Editar Cliente</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+@section('title', 'Editar Cadastro')
 
-<body>
-    <div class="container py-3">
+@section('content')
 
-        <h1>Editar Cliente</h1>
+<div class="page-header">
+    <h1 class="h3 mb-0">Editar Cadastro</h1>
+    <a href="{{ route('cliente.index') }}" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Voltar
+    </a>
+</div>
+
+<div class="card page-card">
+    <div class="card-body">
 
         <form action="{{ route('cliente.update', $cliente->id) }}" method="post">
             @csrf
@@ -24,16 +25,13 @@
 
             <div class="mb-3">
                 <label for="telefone" class="form-label">Telefone</label>
-                <input type="text" id="telefone" name="telefone" class="form-control" value="{{ $cliente->telefone }}"
-                    required="">
+                <input type="text" id="telefone" name="telefone" class="form-control" value="{{ $cliente->telefone }}" required="">
             </div>
 
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-
     </div>
-</body>
+</div>
 
-</html>
+@endsection
